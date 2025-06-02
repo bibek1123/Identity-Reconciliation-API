@@ -1,6 +1,17 @@
 # Identity Reconciliation API
 
-An identity resolution microservice for FluxKart.com, built to consolidate customer contact information and ensure a personalized shopping experience across sessions — even when users change their email or phone number.
+This project provides a RESTful API to manage and identify customer contacts based on phone numbers and emails. It consolidates contacts by distinguishing between primary and secondary contact records, ensuring clean and reliable customer data management.
+
+**Features**
+1) Create and retrieve customer contacts.
+
+2) Identify customers by phone number and/or email.
+
+3) Automatically link secondary contacts to a primary contact.
+
+4) Consolidated contact response including all associated emails and phone numbers.
+
+5) Handles edge cases such as multiple primary contacts and contact updates.
 
 ---
 
