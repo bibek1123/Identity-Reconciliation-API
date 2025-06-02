@@ -1,0 +1,1076 @@
+{
+	"info": {
+		"_postman_id": "6bb4076f-3c22-4050-b103-fdadb9f0b3d4",
+		"name": "Identity-Reconciliation",
+		"description": "Step-by-step test cases for the Identify Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14736333"
+	},
+	"item": [
+		{
+			"name": "Step 1 - Create new primary contact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"phoneNumber\":\"1111111111\",\"email\":\"user1@example.com\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/identify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step 1 - Create new primary contact",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phoneNumber\":\"1111111111\",\"email\":\"user1@example.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/identify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"identify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-DobRAbWc7Ap+YvCqb48/mvYguRs\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 10:11:33 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"SUCCESS\",\n    \"message\": \"Contact identified successfully\",\n    \"data\": {\n        \"contact\": {\n            \"primaryContactId\": 1,\n            \"emails\": [\n                \"user1@example.com\"\n            ],\n            \"phoneNumbers\": [\n                \"1111111111\"\n            ],\n            \"secondaryContactIds\": []\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Step 2 - Add secondary with same phone, different email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"phoneNumber\":\"1111111111\",\"email\":\"user1.secondary@example.com\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/identify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step 2 - Add secondary with same phone, different email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phoneNumber\":\"1111111111\",\"email\":\"user1.secondary@example.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/identify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"identify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "221",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"dd-ZJ5v3GSpLBFLeRsZF7CmxIt3fj0\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 10:11:49 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"SUCCESS\",\n    \"message\": \"Contact identified successfully\",\n    \"data\": {\n        \"contact\": {\n            \"primaryContactId\": 1,\n            \"emails\": [\n                \"user1@example.com\",\n                \"user1.secondary@example.com\"\n            ],\n            \"phoneNumbers\": [\n                \"1111111111\"\n            ],\n            \"secondaryContactIds\": [\n                2\n            ]\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Step 3 - Add secondary with same email, different phone",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"phoneNumber\":\"2222222222\",\"email\":\"user1@example.com\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/identify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step 3 - Add secondary with same email, different phone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phoneNumber\":\"2222222222\",\"email\":\"user1@example.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/identify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"identify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "236",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ec-5HcKtf9hY4Bn3lTl8E0iSPuBaSI\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 10:12:05 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"SUCCESS\",\n    \"message\": \"Contact identified successfully\",\n    \"data\": {\n        \"contact\": {\n            \"primaryContactId\": 1,\n            \"emails\": [\n                \"user1@example.com\",\n                \"user1.secondary@example.com\"\n            ],\n            \"phoneNumbers\": [\n                \"1111111111\",\n                \"2222222222\"\n            ],\n            \"secondaryContactIds\": [\n                2,\n                3\n            ]\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Step 4 - Create new primary with different phone & email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"phoneNumber\":\"3333333333\",\"email\":\"user2@example.com\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/identify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step 4 - Create new primary with different phone & email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phoneNumber\":\"3333333333\",\"email\":\"user2@example.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/identify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"identify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-sKv1FOqagvOjhR4y2I1ozbJbQbA\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 10:15:06 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"SUCCESS\",\n    \"message\": \"Contact identified successfully\",\n    \"data\": {\n        \"contact\": {\n            \"primaryContactId\": 4,\n            \"emails\": [\n                \"user2@example.com\"\n            ],\n            \"phoneNumbers\": [\n                \"3333333333\"\n            ],\n            \"secondaryContactIds\": []\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Step 5 - Add duplicate primary contact (no new contact)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"phoneNumber\":\"3333333333\",\"email\":\"user2@example.com\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/identify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step 5 - Add duplicate primary contact (no new contact)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phoneNumber\":\"3333333333\",\"email\":\"user2@example.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/identify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"identify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-sKv1FOqagvOjhR4y2I1ozbJbQbA\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 10:15:31 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"SUCCESS\",\n    \"message\": \"Contact identified successfully\",\n    \"data\": {\n        \"contact\": {\n            \"primaryContactId\": 4,\n            \"emails\": [\n                \"user2@example.com\"\n            ],\n            \"phoneNumbers\": [\n                \"3333333333\"\n            ],\n            \"secondaryContactIds\": []\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Step 6 - Merge multiple primaries",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"phoneNumber\": \"1111111111\", \"email\": \"user2@example.com\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/identify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step 6 - Merge multiple primaries",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phoneNumber\": \"1111111111\", \"email\": \"user2@example.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/identify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"identify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "273",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"111-lw59mi+kJVlhI3HO9KSMbd2UqsU\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 10:15:53 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"SUCCESS\",\n    \"message\": \"Contact identified successfully\",\n    \"data\": {\n        \"contact\": {\n            \"primaryContactId\": 1,\n            \"emails\": [\n                \"user1@example.com\",\n                \"user1.secondary@example.com\",\n                \"user2@example.com\"\n            ],\n            \"phoneNumbers\": [\n                \"1111111111\",\n                \"2222222222\",\n                \"3333333333\"\n            ],\n            \"secondaryContactIds\": [\n                2,\n                3,\n                4,\n                5\n            ]\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Step 7 - Add existing secondary contact (no new contact)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"phoneNumber\": \"1111111111\", \"email\": \"user1.secondary@example.com\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/identify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step 7 - Add existing secondary contact (no new contact)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phoneNumber\": \"1111111111\", \"email\": \"user1.secondary@example.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/identify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"identify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "273",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"111-lw59mi+kJVlhI3HO9KSMbd2UqsU\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 10:17:25 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"SUCCESS\",\n    \"message\": \"Contact identified successfully\",\n    \"data\": {\n        \"contact\": {\n            \"primaryContactId\": 1,\n            \"emails\": [\n                \"user1@example.com\",\n                \"user1.secondary@example.com\",\n                \"user2@example.com\"\n            ],\n            \"phoneNumbers\": [\n                \"1111111111\",\n                \"2222222222\",\n                \"3333333333\"\n            ],\n            \"secondaryContactIds\": [\n                2,\n                3,\n                4,\n                5\n            ]\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Step 8 - Only phone provided",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"phoneNumber\": \"6666666666\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/identify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step 8 - Only phone provided",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phoneNumber\": \"6666666666\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/identify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"identify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "171",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ab-wiC0On1/5MD+i9OU/EOaYHOi0V4\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 10:18:22 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"SUCCESS\",\n    \"message\": \"Contact identified successfully\",\n    \"data\": {\n        \"contact\": {\n            \"primaryContactId\": 6,\n            \"emails\": [],\n            \"phoneNumbers\": [\n                \"6666666666\"\n            ],\n            \"secondaryContactIds\": []\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Step 9 - Only email provided",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"onlyemail@example.com\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/identify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step 9 - Only email provided",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"onlyemail@example.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/identify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"identify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "182",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b6-TfyejDzLOvMYHeMhJjBVWOWUtkk\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 10:18:52 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"SUCCESS\",\n    \"message\": \"Contact identified successfully\",\n    \"data\": {\n        \"contact\": {\n            \"primaryContactId\": 7,\n            \"emails\": [\n                \"onlyemail@example.com\"\n            ],\n            \"phoneNumbers\": [],\n            \"secondaryContactIds\": []\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Step 10 - Missing phone and email (invalid input)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/identify",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step 10 - Missing phone and email (invalid input)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/identify",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"identify"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "JSON",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"type": "text"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"type": "text"
+						},
+						{
+							"key": "Content-Length",
+							"value": "90",
+							"type": "text"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5a-4qr1IOUimB0Uu4nDixDVNmp1tRM\"",
+							"type": "text"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 02 Jun 2025 10:09:14 GMT",
+							"type": "text"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"type": "text"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"ERROR\",\n    \"message\": [\n        \"At least one of email or phoneNumber is required.\"\n    ],\n    \"data\": {}\n}"
+				}
+			]
+		}
+	]
+}
