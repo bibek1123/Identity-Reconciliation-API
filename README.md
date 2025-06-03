@@ -23,7 +23,8 @@ Customers often place multiple orders using different contact details (email/pho
 
 ## 🔗 Live Demo
 
-> 🚀 **Live Endpoint:** `/identify`  
+> 🚀 **Live Endpoint:** `https://identity-reconciliation-api-go9n.onrender.com/api/v1
+/identify`  
 > 📬 **Method:** `POST`  
 > 📄 **Content-Type:** `application/json`
 
@@ -124,6 +125,7 @@ Create a `.env` file in the root:
 PORT=3000
 DB_CONNECTION=mysql
 DB_HOST=localhost
+DB_PORT=3306
 DB_USERNAME=root
 DB_PASSWORD=yourpassword
 DB_DATABASE=bitespeed
