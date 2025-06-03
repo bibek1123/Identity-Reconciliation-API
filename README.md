@@ -23,8 +23,7 @@ Customers often place multiple orders using different contact details (email/pho
 
 ## 🔗 Live Demo
 
-> 🚀 **Live Endpoint:** `https://identity-reconciliation-api-go9n.onrender.com/api/v1
-/identify`  
+> 🚀 **Live Endpoint:** `https://identity-reconciliation-api-go9n.onrender.com/api/v1/identify`  
 > 📬 **Method:** `POST`  
 > 📄 **Content-Type:** `application/json`
 
